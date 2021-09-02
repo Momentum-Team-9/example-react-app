@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+span {
+    font-weight: bold;
+}
+
+.card-content {
+    padding: 5px 0px 5px 10px;
+}
