@@ -18,12 +18,23 @@ export const App = () => {
   }
   return (
     <>
-      <div className='flex center five'>
+      <div className="flex center five">
         <h1> Developers for Hire</h1>
       </div>
-      <div className='flex center five three-250'>
+      <div className="flex center five three-250">
         {developers.map((dev, idx) => {
-          return <Developer key={idx} name={dev.name} expertise={dev.expertise} isFavorite={dev.isFavorite} isAvailable={dev.isAvailable} handleFavorite={handleFavorite} interests={dev.interests} />
+          return (
+            <Developer
+              key={idx}
+              name={dev.name}
+              expertise={dev.expertise}
+              isFavorite={dev.isFavorite}
+              isAvailable={dev.isAvailable}
+              handleFavorite={handleFavorite}
+              interests={dev.interests}
+              githubName={dev.githubName}
+            />
+          )
         })}
       </div>
     </>
