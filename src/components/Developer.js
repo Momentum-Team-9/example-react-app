@@ -11,18 +11,19 @@ export const Developer = ({
   githubName,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
-  const [repoNames, setRepoNames] = useState([])
+  const [repos, setRepos] = useState([])
 
   const handleExpanded = () => {
     setIsExpanded(!isExpanded)
   }
 
   useEffect(() => {
-    console.log('USE_EFFECT RUNS!!!')
     axios
-      .get(`https://api.github.com/users/${githubName}/repos?per_page=3`)
+      .get(
+        `https://api.github.com/users/${githubName}/repos?per_page=3&sort=created`
+      )
       .then((response) => {
-        setRepoNames(response.data.map((repo) => repo.name))
+        setRepos(response.data.map((repo) => [repo.name, repo.html_url]))
       })
   }, [])
 
@@ -53,9 +54,11 @@ export const Developer = ({
           {isExpanded && (
             <div>
               <ul class="repos">
-                <li>Repo 1</li>
-                <li>Repo 2</li>
-                <li>Repo 3</li>
+                {repos.map((repo) => (
+                  <li class="repo">
+                    <a href={repo[1]}>{repo[0]}</a>
+                  </li>
+                ))}
               </ul>
               <p>{interests}</p>
             </div>
