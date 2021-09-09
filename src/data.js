@@ -2,6 +2,7 @@ import axios from 'axios'
 
 export const developers = [
   {
+    id: 1,
     name: 'Andrea Vaughan',
     githubName: 'andreavaughan',
     expertise: null,
@@ -10,6 +11,7 @@ export const developers = [
     interests: ['Backpacking'],
   },
   {
+    id: 2,
     name: 'Sarah Wines',
     githubName: 'sarah-wines',
     expertise: ['Front-end', 'React'],
@@ -18,6 +20,7 @@ export const developers = [
     interests: 'Miniatures',
   },
   {
+    id: 3,
     name: 'Mike Biener',
     githubName: 'mjbiener',
     expertise: ['Front-end', 'React'],
@@ -26,6 +29,7 @@ export const developers = [
     interests: 'Extreme Couponing',
   },
   {
+    id: 4,
     name: 'Brian Harrison',
     githubName: 'brianharrison3',
     expertise: ['Front-end', 'Angular'],
