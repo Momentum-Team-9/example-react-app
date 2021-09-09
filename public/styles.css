@@ -9,3 +9,12 @@ span {
 .card-content {
     padding: 5px 0px 5px 10px;
 }
+
+.dev.card {
+    margin: 5px;
+}
+
+.back-button {
+    align-self: start;
+    font-size: .75em;
+}
