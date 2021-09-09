@@ -34,13 +34,13 @@ export const Developer = ({
             {isAvailable ? 'On Market' : 'Off Market'}{' '}
           </p>
           {isExpanded ? (
-            <a href="#" onClick={handleExpanded}>
+            <button href="#" onClick={handleExpanded}>
               Show Less <i className="fas fa-caret-up" />
-            </a>
+            </button>
           ) : (
-            <a href="#" onClick={handleExpanded}>
+            <button href="#" onClick={handleExpanded}>
               Show More <i className="fas fa-caret-down" />
-            </a>
+            </button>
           )}
           {isExpanded && (
             <div>
