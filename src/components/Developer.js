@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import { RepoList } from './RepoList'
 
 export const Developer = ({
   name,
@@ -9,23 +9,14 @@ export const Developer = ({
   handleFavorite,
   interests,
   githubName,
+  children,
+  setSelectedDev,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
-  const [repos, setRepos] = useState([])
 
   const handleExpanded = () => {
     setIsExpanded(!isExpanded)
   }
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.github.com/users/${githubName}/repos?per_page=3&sort=created`
-      )
-      .then((response) => {
-        setRepos(response.data.map((repo) => [repo.name, repo.html_url]))
-      })
-  }, [])
 
   return (
     <div>
@@ -53,13 +44,7 @@ export const Developer = ({
           )}
           {isExpanded && (
             <div>
-              <ul class="repos">
-                {repos.map((repo) => (
-                  <li class="repo">
-                    <a href={repo[1]}>{repo[0]}</a>
-                  </li>
-                ))}
-              </ul>
+              <RepoList ghName={githubName} />
               <p>{interests}</p>
             </div>
           )}
